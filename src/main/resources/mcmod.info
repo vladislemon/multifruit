@@ -1,0 +1,16 @@
+[
+    {
+      "modid": "${modId}",
+      "name": "${modName}",
+      "description": "Compat mod for MultiFruit modpack.",
+      "version": "${modVersion}",
+      "mcversion": "${minecraftVersion}",
+      "url": "https://github.com/vladislemon/multifruit",
+      "updateUrl": "",
+      "authorList": ["vladislemon"],
+      "credits": "",
+      "logoFile": "",
+      "screenshots": [],
+      "dependencies": []
+    }
+]
