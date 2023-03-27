@@ -16,7 +16,14 @@ public class CommonProxy {
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes."
     public void init(FMLInitializationEvent event) {
-
+        if (Loader.isModLoaded("IC2")) {
+            ItemStack stickyResin = new ItemStack((Item) Item.itemRegistry.getObject("IC2:itemHarz"), 1, 1);
+            OreDictionary.registerOre("itemRawRubber", stickyResin);
+        }
+        if (Loader.isModLoaded("EnderIO")) {
+            ItemStack basicGear = new ItemStack((Item) Item.itemRegistry.getObject("EnderIO:itemMachinePart"), 1, 1);
+            OreDictionary.registerOre("gearIron", basicGear);
+        }
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this."
