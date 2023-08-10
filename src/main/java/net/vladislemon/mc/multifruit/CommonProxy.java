@@ -32,6 +32,14 @@ public class CommonProxy {
             ItemStack basicGear = new ItemStack((Item) Item.itemRegistry.getObject("EnderIO:itemMachinePart"), 1, 1);
             OreDictionary.registerOre("gearIron", basicGear);
         }
+        if (Loader.isModLoaded("ImmersiveEngineering")) {
+            ItemStack netherQuartzDust = new ItemStack((Item) Item.itemRegistry.getObject("ImmersiveEngineering:metal"), 1, 18);
+            OreDictionary.registerOre("dustNetherQuartz", netherQuartzDust);
+        }
+        if (Loader.isModLoaded("Magneticraft")) {
+            ItemStack netherQuartzDust = new ItemStack((Item) Item.itemRegistry.getObject("Magneticraft:item.dustQuartz"), 1, 1);
+            OreDictionary.registerOre("dustNetherQuartz", netherQuartzDust);
+        }
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this."
