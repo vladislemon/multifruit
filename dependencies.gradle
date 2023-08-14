@@ -1,5 +1,7 @@
 // Add your dependencies here
 
 dependencies {
-
+    implementation 'com.github.GTNewHorizons:NotEnoughItems:2.3.63-GTNH:dev'
+    implementation("com.github.GTNewHorizons:FTB-Utilities:1.1.0-GTNH")
+    implementation("curse.maven:mapwriter-2-231387:2258787")
 }
