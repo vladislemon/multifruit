@@ -13,7 +13,6 @@ import mapwriter.map.mapmode.FullScreenMapMode;
 import mapwriter.map.mapmode.MapMode;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.entity.player.EntityPlayer;
 import org.lwjgl.input.Mouse;
 
 import java.awt.*;
@@ -58,7 +57,7 @@ public class ClaimedChunksDataProvider implements IMwDataProvider {
         ChunkType chunkType = ClaimedAreasClient.getTypeE(bX >> 4, bZ >> 4);
         String status = ", " + chunkType.getIDS();
         if (chunkType.isClaimed()) {
-            status += " (" + getOwnerName(chunkType) + ")";
+            status += " (" + getOwner(chunkType) + ")";
         }
         return status;
     }
@@ -117,9 +116,9 @@ public class ClaimedChunksDataProvider implements IMwDataProvider {
         int screenX = (Mouse.getX() * 2 - Minecraft.getMinecraft().displayWidth) / 4;
         int screenY = (Minecraft.getMinecraft().displayHeight - Mouse.getY() * 2) / 4;
         ChunkType chunkType = ClaimedAreasClient.getTypeE(blockPos.x >> 4, blockPos.y >> 4);
-        String ownerName = getOwnerName(chunkType);
-        if (ownerName != null) {
-            fontRenderer.drawStringWithShadow(ownerName, screenX + 5, screenY - 5, COLOR_TEXT_OVER_MOUSE);
+        LMPlayer owner = getOwner(chunkType);
+        if (owner != null) {
+            fontRenderer.drawStringWithShadow(owner.toString(), screenX + 5, screenY - 5, COLOR_TEXT_OVER_MOUSE);
         }
     }
 
@@ -135,18 +134,6 @@ public class ClaimedChunksDataProvider implements IMwDataProvider {
             return LMWorldClient.inst.clientPlayer;
         }
         return null;
-    }
-
-    private static String getOwnerName(ChunkType chunkType) {
-        LMPlayer owner = getOwner(chunkType);
-        if (owner == null) {
-            return null;
-        }
-        EntityPlayer player = owner.getPlayer();
-        if (player == null) {
-            return null;
-        }
-        return player.getDisplayName();
     }
 
     private static void changeChunkType(int dimension, int x, int z, int type) {
