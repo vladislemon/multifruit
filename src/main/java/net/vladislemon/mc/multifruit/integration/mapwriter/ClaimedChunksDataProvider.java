@@ -1,4 +1,4 @@
-package net.vladislemon.mc.multifruit.mapwriter;
+package net.vladislemon.mc.multifruit.integration.mapwriter;
 
 import ftb.utils.mod.client.gui.claims.ClaimedAreasClient;
 import ftb.utils.net.MessageAreaRequest;

@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.vladislemon.mc.multifruit.command.CommandEnchantability;
+import net.vladislemon.mc.multifruit.integration.Integrations;
 
 public class CommonProxy {
 
@@ -24,6 +25,7 @@ public class CommonProxy {
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes."
     public void init(FMLInitializationEvent event) {
+        Integrations.initCommon();
         if (Loader.isModLoaded("IC2")) {
             ItemStack stickyResin = new ItemStack((Item) Item.itemRegistry.getObject("IC2:itemHarz"), 1, 1);
             OreDictionary.registerOre("itemRawRubber", stickyResin);

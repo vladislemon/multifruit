@@ -1,6 +1,5 @@
 package net.vladislemon.mc.multifruit;
 
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -9,8 +8,7 @@ import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
-import mapwriter.api.MwAPI;
-import net.vladislemon.mc.multifruit.mapwriter.ClaimedChunksDataProvider;
+import net.vladislemon.mc.multifruit.integration.Integrations;
 
 public class ClientProxy extends CommonProxy {
 
@@ -23,9 +21,7 @@ public class ClientProxy extends CommonProxy {
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes."
     public void init(FMLInitializationEvent event) {
         super.init(event);
-        if (Loader.isModLoaded("MapWriter")) {
-            MwAPI.registerDataProvider("Claimed chunks", new ClaimedChunksDataProvider());
-        }
+        Integrations.initClient();
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this."
