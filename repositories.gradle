@@ -2,12 +2,19 @@
 
 repositories {
     maven {
-        name 'GTNH Maven'
-        url 'http://jenkins.usrv.eu:8081/nexus/content/groups/public/'
-        allowInsecureProtocol
+        name "GTNH Maven"
+        url "https://nexus.gtnewhorizons.com/repository/public/"
     }
     maven {
         name "CurseMaven"
         url "https://www.cursemaven.com/"
+    }
+    maven {
+        name "ModMaven"
+        url "https://modmaven.dev/"
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
     }
 }

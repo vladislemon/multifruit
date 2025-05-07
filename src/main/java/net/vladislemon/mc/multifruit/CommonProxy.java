@@ -11,6 +11,7 @@ import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import net.vladislemon.mc.multifruit.command.CommandEnchantability;
 import net.vladislemon.mc.multifruit.integration.Integrations;
@@ -29,6 +30,7 @@ public class CommonProxy {
         if (Loader.isModLoaded("IC2")) {
             ItemStack stickyResin = new ItemStack((Item) Item.itemRegistry.getObject("IC2:itemHarz"), 1, 1);
             OreDictionary.registerOre("itemRawRubber", stickyResin);
+            MinecraftForge.EVENT_BUS.register(new IC2AchievementFixer());
         }
         if (Loader.isModLoaded("EnderIO")) {
             ItemStack basicGear = new ItemStack((Item) Item.itemRegistry.getObject("EnderIO:itemMachinePart"), 1, 1);
