@@ -5,8 +5,7 @@ import net.vladislemon.mc.multifruit.integration.mapwriter.MapWriterIntegration;
 
 public class Integrations {
 
-    public static void initCommon() {
-    }
+    public static void initCommon() {}
 
     public static void initClient() {
         try {

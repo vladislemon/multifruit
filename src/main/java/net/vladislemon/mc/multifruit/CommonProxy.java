@@ -1,5 +1,12 @@
 package net.vladislemon.mc.multifruit;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.oredict.OreDictionary;
+import net.vladislemon.mc.multifruit.command.CommandEnchantability;
+import net.vladislemon.mc.multifruit.integration.Integrations;
+
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -9,12 +16,6 @@ import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.oredict.OreDictionary;
-import net.vladislemon.mc.multifruit.command.CommandEnchantability;
-import net.vladislemon.mc.multifruit.integration.Integrations;
 
 public class CommonProxy {
 
@@ -37,11 +38,17 @@ public class CommonProxy {
             OreDictionary.registerOre("gearIron", basicGear);
         }
         if (Loader.isModLoaded("ImmersiveEngineering")) {
-            ItemStack netherQuartzDust = new ItemStack((Item) Item.itemRegistry.getObject("ImmersiveEngineering:metal"), 1, 18);
+            ItemStack netherQuartzDust = new ItemStack(
+                (Item) Item.itemRegistry.getObject("ImmersiveEngineering:metal"),
+                1,
+                18);
             OreDictionary.registerOre("dustNetherQuartz", netherQuartzDust);
         }
         if (Loader.isModLoaded("Magneticraft")) {
-            ItemStack netherQuartzDust = new ItemStack((Item) Item.itemRegistry.getObject("Magneticraft:item.dustQuartz"), 1, 1);
+            ItemStack netherQuartzDust = new ItemStack(
+                (Item) Item.itemRegistry.getObject("Magneticraft:item.dustQuartz"),
+                1,
+                1);
             OreDictionary.registerOre("dustNetherQuartz", netherQuartzDust);
         }
     }

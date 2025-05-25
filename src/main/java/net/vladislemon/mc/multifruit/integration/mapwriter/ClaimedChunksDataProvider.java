@@ -1,5 +1,13 @@
 package net.vladislemon.mc.multifruit.integration.mapwriter;
 
+import java.awt.*;
+import java.util.ArrayList;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+
+import org.lwjgl.input.Mouse;
+
 import ftb.utils.mod.client.gui.claims.ClaimedAreasClient;
 import ftb.utils.net.MessageAreaRequest;
 import ftb.utils.net.MessageClaimChunk;
@@ -11,14 +19,9 @@ import mapwriter.api.IMwDataProvider;
 import mapwriter.map.MapView;
 import mapwriter.map.mapmode.FullScreenMapMode;
 import mapwriter.map.mapmode.MapMode;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import org.lwjgl.input.Mouse;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class ClaimedChunksDataProvider implements IMwDataProvider {
+
     private static final int MAX_AREA_SIZE = 128;
     private static final int AREA_MIN_UPDATE_INTERVAL_MILLIS = 10000;
     private static final int COLOR_TEXT_OVER_MOUSE = 0xFFFFFFFF;
@@ -26,7 +29,8 @@ public class ClaimedChunksDataProvider implements IMwDataProvider {
     private boolean requestAreaUpdate;
 
     @Override
-    public ArrayList<IMwChunkOverlay> getChunksOverlay(int dim, double centerX, double centerZ, double minX, double minZ, double maxX, double maxZ) {
+    public ArrayList<IMwChunkOverlay> getChunksOverlay(int dim, double centerX, double centerZ, double minX,
+        double minZ, double maxX, double maxZ) {
         int minChunkX = ((int) Math.floor(minX)) >> 4;
         int minChunkZ = ((int) Math.floor(minZ)) >> 4;
         int maxChunkX = ((int) Math.ceil(maxX)) >> 4;
@@ -99,8 +103,7 @@ public class ClaimedChunksDataProvider implements IMwDataProvider {
     }
 
     @Override
-    public void onOverlayDeactivated(MapView mapView) {
-    }
+    public void onOverlayDeactivated(MapView mapView) {}
 
     @Override
     public void onDraw(MapView mapView, MapMode mapMode) {
@@ -109,11 +112,8 @@ public class ClaimedChunksDataProvider implements IMwDataProvider {
         }
         FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
         // FIXME Mouse.getX() and Mouse.getY() always returns 0 when lwjgl3ify present
-        Point blockPos = mapMode.screenXYtoBlockXZ(
-                mapView,
-                Mouse.getX() / 2,
-                (Minecraft.getMinecraft().displayHeight - Mouse.getY()) / 2
-        );
+        Point blockPos = mapMode
+            .screenXYtoBlockXZ(mapView, Mouse.getX() / 2, (Minecraft.getMinecraft().displayHeight - Mouse.getY()) / 2);
         int screenX = (Mouse.getX() * 2 - Minecraft.getMinecraft().displayWidth) / 4;
         int screenY = (Minecraft.getMinecraft().displayHeight - Mouse.getY() * 2) / 4;
         ChunkType chunkType = ClaimedAreasClient.getTypeE(blockPos.x >> 4, blockPos.y >> 4);
@@ -143,6 +143,7 @@ public class ClaimedChunksDataProvider implements IMwDataProvider {
     }
 
     private static class ClaimOverlay implements IMwChunkOverlay {
+
         private static final int COLOR_FILL_MASK = 0x77FFFFFF;
         private final Point pos;
         private final int color;

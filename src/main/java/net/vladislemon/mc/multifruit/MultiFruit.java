@@ -1,16 +1,18 @@
 package net.vladislemon.mc.multifruit;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import static net.vladislemon.mc.multifruit.MultiFruit.MODID;
 import static net.vladislemon.mc.multifruit.MultiFruit.MODNAME;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.*;
+
 @Mod(modid = MODID, version = Tags.VERSION, name = MODNAME, acceptedMinecraftVersions = "[1.7.10]")
 public class MultiFruit {
+
     public static final String MODID = "multifruit";
     public static final String MODNAME = "MultiFruit";
     public static final String GROUPNAME = "net.vladislemon.mc.multifruit";

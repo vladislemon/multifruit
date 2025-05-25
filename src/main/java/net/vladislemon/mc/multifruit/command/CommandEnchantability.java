@@ -1,5 +1,7 @@
 package net.vladislemon.mc.multifruit.command;
 
+import java.util.List;
+
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -9,9 +11,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 
-import java.util.List;
-
 public class CommandEnchantability extends CommandBase {
+
     @Override
     public String getCommandName() {
         return "enchantability";
@@ -52,7 +53,8 @@ public class CommandEnchantability extends CommandBase {
 
     @Override
     public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
-        return args.length == 1 ? getListOfStringsFromIterableMatchingLastWord(args, Item.itemRegistry.getKeys()) : null;
+        return args.length == 1 ? getListOfStringsFromIterableMatchingLastWord(args, Item.itemRegistry.getKeys())
+            : null;
     }
 
     private static ItemStack getPlayerHeldItem(EntityPlayer player) {
@@ -67,7 +69,8 @@ public class CommandEnchantability extends CommandBase {
     }
 
     private static void printEnchantability(ICommandSender sender, ItemStack itemStack) {
-        int itemEnchantability = itemStack.getItem().getItemEnchantability(itemStack);
+        int itemEnchantability = itemStack.getItem()
+            .getItemEnchantability(itemStack);
         sender.addChatMessage(new ChatComponentText(String.valueOf(itemEnchantability)));
     }
 }

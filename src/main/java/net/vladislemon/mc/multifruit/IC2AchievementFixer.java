@@ -1,14 +1,16 @@
 package net.vladislemon.mc.multifruit;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import ic2.core.IC2;
-import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
-import net.minecraftforge.oredict.OreDictionary;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.oredict.OreDictionary;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import ic2.core.IC2;
+
 public class IC2AchievementFixer {
+
     private final Collection<String> ic2Ores = new ArrayList<>();
 
     public IC2AchievementFixer() {

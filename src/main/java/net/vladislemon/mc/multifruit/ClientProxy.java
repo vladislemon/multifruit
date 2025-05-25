@@ -1,5 +1,7 @@
 package net.vladislemon.mc.multifruit;
 
+import net.vladislemon.mc.multifruit.integration.Integrations;
+
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -8,7 +10,6 @@ import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
-import net.vladislemon.mc.multifruit.integration.Integrations;
 
 public class ClientProxy extends CommonProxy {
 
