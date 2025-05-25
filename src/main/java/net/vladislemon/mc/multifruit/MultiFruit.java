@@ -6,12 +6,17 @@ import cpw.mods.fml.common.event.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = "[1.7.10]")
+import static net.vladislemon.mc.multifruit.MultiFruit.MODID;
+import static net.vladislemon.mc.multifruit.MultiFruit.MODNAME;
+
+@Mod(modid = MODID, version = Tags.VERSION, name = MODNAME, acceptedMinecraftVersions = "[1.7.10]")
 public class MultiFruit {
+    public static final String MODID = "multifruit";
+    public static final String MODNAME = "MultiFruit";
+    public static final String GROUPNAME = "net.vladislemon.mc.multifruit";
+    private static final Logger LOG = LogManager.getLogger(MODID);
 
-    private static final Logger LOG = LogManager.getLogger(Tags.MODID);
-
-    @SidedProxy(clientSide= Tags.GROUPNAME + ".ClientProxy", serverSide=Tags.GROUPNAME + ".CommonProxy")
+    @SidedProxy(clientSide = GROUPNAME + ".ClientProxy", serverSide = GROUPNAME + ".CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

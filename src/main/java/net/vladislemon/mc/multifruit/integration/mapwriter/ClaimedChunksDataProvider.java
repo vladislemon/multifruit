@@ -108,6 +108,7 @@ public class ClaimedChunksDataProvider implements IMwDataProvider {
             return;
         }
         FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
+        // FIXME Mouse.getX() and Mouse.getY() always returns 0 when lwjgl3ify present
         Point blockPos = mapMode.screenXYtoBlockXZ(
                 mapView,
                 Mouse.getX() / 2,

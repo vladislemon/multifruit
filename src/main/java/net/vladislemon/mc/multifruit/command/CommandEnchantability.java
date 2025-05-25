@@ -51,7 +51,7 @@ public class CommandEnchantability extends CommandBase {
     }
 
     @Override
-    public List<?> addTabCompletionOptions(ICommandSender sender, String[] args) {
+    public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
         return args.length == 1 ? getListOfStringsFromIterableMatchingLastWord(args, Item.itemRegistry.getKeys()) : null;
     }
 
