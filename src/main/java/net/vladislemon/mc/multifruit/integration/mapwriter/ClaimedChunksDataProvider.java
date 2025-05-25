@@ -1,6 +1,6 @@
 package net.vladislemon.mc.multifruit.integration.mapwriter;
 
-import java.awt.*;
+import java.awt.Point;
 import java.util.ArrayList;
 
 import net.minecraft.client.Minecraft;
